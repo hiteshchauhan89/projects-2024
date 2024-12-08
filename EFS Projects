@@ -1,2 +1,21 @@
-In This Project I have created 3 Different AMI Amazon Linux,Redhat And Ubuntu With Single EFS Connected.
+Create an EFS and connect it to 3 different EC2 instances. Make sure that all instances have different operating systems. For instance, Ubuntu, Red Hat Linux and Amazon Linux 2.
 
+1. First we need to create the EC2 Instance Ubuntu
+
+2. After Creating the instance we need to take access to the instance from a public ip.
+
+3. After connect the public IP we need to update the Ubuntu so this is the command
+sudo apt-get update
+4. After Update the ec2 instance we need to install the nfs-common package this package helps to efs connection so we need to run this command for the nfs-common package install
+
+sudo apt-get -y install nfs-common
+5. After installing the package we need to create a directory of efs.
+sudo mkdir efs
+
+6.df -h 
+This Command helps you to will display information about all the mounted file systems which will include total size, used space, usage percentage, and the mount point
+7.Then We used the command of efs
+mount -t nfs4 -o krb5p <DNS_NAME>:/ /efs/ 
+
+For More Information
+https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-general.html
